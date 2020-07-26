@@ -30,7 +30,11 @@ public class RepositoryUtilisateurImpl implements IRepositoryUtilisateur {
     @Override
     public Utilisateur rechercherUser(String login) {
         UtilisateurEntity monUtilisateurEntity = userJpaRepository.findByLogin(login);
-        return UtilisateurMapper.mapToDomain(monUtilisateurEntity);
+        if (monUtilisateurEntity != null) {
+            return UtilisateurMapper.mapToDomain(monUtilisateurEntity);
+        } else {
+            return  null;
+        }
     }
 
     @Override
