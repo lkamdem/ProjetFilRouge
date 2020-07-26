@@ -50,18 +50,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // Autorisation avec basic Auth, CREDENTIALS a transmettre dans chaque requete http.
+ /*       http.httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers("gestaffectation/**").authenticated().anyRequest().hasRole("ADMIN")
+                .and()
+                .formLogin().disable();*/
+
+        // Autorisation avec login prealable à toute requête.
         http.csrf().disable()
             .authorizeRequests()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/logout").permitAll()
                 .antMatchers("/gestaffectation/**").authenticated().anyRequest().permitAll()
-//                .antMatchers("/gestaffectation/**").permitAll()
             .and()
             .formLogin()
                 .loginProcessingUrl("/login")
                 .successHandler(new AuthentificationLoginSuccessHandler())
 //                .failureHandler(new SimpleUrlAuthenticationFailureHandler())
-                .failureHandler(new CustomeAuthentificationFailureHandler())
+                .failureHandler(new CustomAuthentificationFailureHandler())
             .and()
             .logout()
                 .logoutUrl("/logout")
@@ -81,11 +89,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-    private class CustomeAuthentificationFailureHandler implements AuthenticationFailureHandler{
+    private class CustomAuthentificationFailureHandler implements AuthenticationFailureHandler{
         @Override
         public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            response.getOutputStream().println(exception.getMessage());
+            response.getOutputStream().println("login ou mdp incorrecte");
             monLogger.debug("*** AUTHENTIFICATION ECHOUEE ****");
             for (String param : request.getQueryString().split("&")) {
                 monLogger.debug(param);
