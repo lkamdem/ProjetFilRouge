@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.epita.filrouge</groupId>
+    <artifactId>GestAffectMobile</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>expositions</module>
+        <module>application</module>
+        <module>domain</module>
+        <module>infrastructure</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version-postgres>42.2.14</version-postgres>
+        <version-h2>1.4.200</version-h2>
+        <version-appli>0.0.1-SNAPSHOT</version-appli>
+        <version-springboot>2.3.1.RELEASE</version-springboot>
+        <version-swagger>2.9.2</version-swagger>
+        <version-jupiter>5.6.0</version-jupiter>
+        <version-assertj>3.16.1</version-assertj>
+        <version-springcontext>5.2.6.RELEASE</version-springcontext>
+        <version-commons-lang3>3.0</version-commons-lang3>
+        <jacoco-maven-plugin.version>0.7.4.201502262128</jacoco-maven-plugin.version>
+        <version-springsecu>2.3.1.RELEASE</version-springsecu>
+        <version-springsecutest>5.3.3.RELEASE</version-springsecutest>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-test -->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-test</artifactId>
+                <version>${version-springsecutest}</version>
+            </dependency>
+
+            <!-- dépendences techniques pour les couches applicatives-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${version-springsecu}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${version-springboot}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${version-springboot}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${version-springboot}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${version-springboot}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${version-springcontext}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+                <version>${version-springboot}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-validation</artifactId>
+                <version>${version-springboot}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${version-springboot}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${version-jupiter}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${version-assertj}</version>
+                <scope>test</scope>
+            </dependency>
+
+
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${version-swagger}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${version-swagger}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${version-postgres}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${version-h2}</version>
+                <scope>test</scope>
+            </dependency>
+
+
+            <!-- dépendences techniques pour les couches applicatives-->
+
+            <dependency>
+                <groupId>com.epita.filrouge</groupId>
+                <artifactId>exposition</artifactId>
+                <version>${version-appli}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.epita.filrouge</groupId>
+                <artifactId>application</artifactId>
+                <version>${version-appli}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.epita.filrouge</groupId>
+                <artifactId>domaine</artifactId>
+                <version>${version-appli}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.epita.filrouge</groupId>
+                <artifactId>infrastructure</artifactId>
+                <version>${version-appli}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${version-commons-lang3}</version>
+            </dependency>
+        </dependencies>
+
+
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
