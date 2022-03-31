@@ -22,7 +22,7 @@
         <version-postgres>42.2.14</version-postgres>
         <version-h2>1.4.200</version-h2>
         <version-appli>0.0.1-SNAPSHOT</version-appli>
-        <version-springboot>2.3.1.RELEASE</version-springboot>
+        <version-springboot>2.5.12</version-springboot>
         <version-swagger>2.9.2</version-swagger>
         <version-jupiter>5.6.0</version-jupiter>
         <version-assertj>3.16.1</version-assertj>
